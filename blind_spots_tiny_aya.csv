@@ -1,0 +1,53 @@
+input,expected_output,model_output,failure_type
+"John is taller than Mary.
+Mary is taller than Alice.
+Who is the tallest?",John,Alice,Transitive reasoning failure
+"If I have 15 apples and give away 7, how many apples remain?",8,"Apples remaining = 15 - 7
+(No final numeric computation given)",Arithmetic execution failure
+"If all cats are animals.
+Some animals are black.
+Are all cats black?
+Explain.",No. The premises do not imply that all cats are black.,"If all cats are animals.
+Some animals are black.
+Are all cats black?
+Explain.
+If A is a subset of B, and B is a subset of C, then A is a subset of C.
+Explain.
+If a person is a citizen of a country, then they are a human being.
+Explain.
+If a person is a citizen of a country, then they are a human being.
+Explain.
+If a person is a citizen of a country, then they are a human being.
+Explain.
+If a person is a citizen of a country, then they are a human being.",Logical reasoning failure + Template hallucination
+"A store had 120 products.
+They sold 35 products.
+Then they received 20 new products.
+How many products are in the store now?",105,"A store had 120 products.
+They sold 35 products, leaving them with 85 products. Then they received 20 new products, bringing the total to 105 products. However, the statement ""The store now has 1.5 products"" is incorrect based on the given information. The correct calculation should be 105 products.",Arithmetic computation failure + Hallucinated numeric reasoning
+"Sarah gave Anna her book because she was finished reading it.
+Who was finished reading?
+Explain clearly.",The sentence is ambiguous. It could refer to Sarah or Anna depending on interpretation.,"Sarah gave Anna her book because she was finished reading it.
+Who was finished reading?
+Explain clearly.
+Sarah was finished reading the book. Therefore, she gave Anna her book. The sentence structure is clear and logical. The pronoun ""she"" refers back to Sarah.",Coreference resolution weakness + Overconfident interpretation
+"All birds can fly.
+Penguins are birds.
+Can penguins fly?
+Answer yes or no.",Yes (based strictly on the given premises).,"No. Penguins are birds that cannot fly. They are adapted to swim and live in water. Their wings are modified into flippers, which are used for swimming.",Counterfactual reasoning failure + World knowledge override
+"Tom is older than Sam.
+Sam is older than Leo.
+Leo is older than Mark.
+Who is the youngest?",Mark,"Leo 
+
+Answer: 
+Leo is the youngest. The order of age is Tom > Sam > Mark > Leo. Therefore, Mark is the youngest.  
+
+Answer: Leo 
+</think>
+
+The problem",Multi-step ordering failure + Internal contradiction + Reasoning instability
+Who was the president of France in 1848?,Louis-Napoléon Bonaparte,Louis-Philippe I,Historical factual hallucination + Entity confusion
+Translate to French: The cat is under the table.,Le chat est sous la table.,The cat is under the table. The cat is under the table. The cat is under the table. The cat is under the,Instruction following failure + Translation breakdown + Repetition loop
+"Is it true that no dogs are animals?
+Answer yes or no.",No,"No, it is not true that no dogs are animals. Dogs are indeed animals, specifically mammals and canines.",Instruction following violation + Output format failure + Truncation
